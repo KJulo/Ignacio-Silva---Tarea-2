@@ -1,0 +1,27 @@
+{
+  "name": "formularios",
+  "version": "1.0.0",
+  "description": "Formulario",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-css": "node-sass --recursive -o css scss"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KJulo/Ignacio-Silva---Ingenieria-Web.git"
+  },
+  "keywords": [
+    "Formulario"
+  ],
+  "author": "Ignacio Silva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KJulo/Ignacio-Silva---Ingenieria-Web/issues"
+  },
+  "homepage": "https://github.com/KJulo/Ignacio-Silva---Ingenieria-Web#readme",
+  "dependencies": {
+    "bootstrap": "^5.1.1",
+    "node-sass": "^6.0.1"
+  }
+}
