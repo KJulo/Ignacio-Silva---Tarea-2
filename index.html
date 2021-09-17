@@ -14,7 +14,7 @@
 
         <!--Estilos locales-->
         <link rel="stylesheet" href="/css/estilos.css">
-        
+        <script src="js/formulario.js"></script>
 
         <!--Bootstrap-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -24,101 +24,99 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
     </head>
-    <body class = "bg-secondary">
+    <body>
         <div class="container">
             <header class="d-flex flex-wrap justify-content-center py-3 bg-dark text-white rounded-bottom rounded-pill">    
                 <span class="fs-4">Formulario</span>
             </header>
         </div>
-        <div class="container bg-white">
-            <form id="formulario" class="needs-validation" method="post">
-                <div class="col-12 d-flex flex-wrap justify-content-center">
+        <div class="container">
+            <form id="formulario" method="post">
+                <div class="col-12 d-flex flex-wrap justify-content-center needs-validation">
                     <label for="nombreCompleto" class="form-label">Nombre completo*</label>
-                    <input type="text" class="form-control" id="nombreCompleto" placeholder="Su nombre completo" required>
-                    <div class="invalid-feedback"> xdasdas</div>
-                    
+                    <input type="nombre" class="form-control" id="nombreCompleto" placeholder="Su nombre completo">
                 </div>
 
                 <div class="col-12 d-flex flex-wrap justify-content-center">
                     <label for="rut" class="form-label">Rut*</label>
-                    <input type="text" class="form-control" id="rut" placeholder="xxxxxxxx-x" required>
+                    <input type="rut" class="form-control" id="rut" placeholder="xxxxxxxx-x">
                 </div>
 
                 <div class="col-12 d-flex flex-wrap justify-content-center">
                     <label for="correoElectronico" class="form-label">Correo electrónico*</label>
-                    <input type="email" class="form-control" id="correoElectronico" placeholder="correo@dominio.com" required>
+                    <input type="email" class="form-control" id="correoElectronico" placeholder="correo@dominio.com">
                 </div>
 
                 <div class="col-12 d-flex flex-wrap justify-content-center">
                     <label for="telefonoMovil" class="form-label">Telefono movil*</label>
-                    <input type="number" class="form-control" id="telefonoMovil" placeholder="912345678" pattern="[0-9]{9}" required>
+                    <input type="tel" class="form-control" id="telefonoMovil" placeholder="912345678">
                 </div>
 
-                <div class="col-12 d-flex flex-wrap justify-content-center" id="lenguajeInteres">
-                    <label for="cListLenguajeI" class="form-label" >Lenguajes de interes*</label>
+                <div class="col-12 d-flex flex-wrap justify-content-center">
+                    <label for="cListLenguajeI" class="form-label">Lenguajes de interes*</label>
                     <div class="form-check col-12">
-                        <input class="form-check-input" type="checkbox" id="lenguajesPreferidos">
+                        <input class="form-check-input" type="checkbox" value="" id="lenguajesPreferidos">
                         <label class="form-check-label" for="lenguajesPreferidos">Python</label>
                     </div>
                     <div class="form-check col-12">
-                        <input class="form-check-input" type="checkbox" id="lenguajesPreferidos">
+                        <input class="form-check-input" type="checkbox" value="" id="lenguajesPreferidos">
                         <label class="form-check-label" for="lenguajesPreferidos">TypeScript</label>
                     </div>
                     <div class="form-check col-12">
-                        <input class="form-check-input" type="checkbox" id="lenguajesPreferidos">
+                        <input class="form-check-input" type="checkbox" value="" id="lenguajesPreferidos">
                         <label class="form-check-label" for="lenguajesPreferidos">C++</label>
                     </div>
                     <div class="form-check col-12">
-                        <input class="form-check-input" type="checkbox" id="lenguajesPreferidos">
+                        <input class="form-check-input" type="checkbox" value="" id="lenguajesPreferidos">
                         <label class="form-check-label" for="lenguajesPreferidos">C#</label>
                     </div>
                     <div class="form-check col-12">
-                        <input class="form-check-input" type="checkbox" id="lenguajesPreferidos">
+                        <input class="form-check-input" type="checkbox" value="" id="lenguajesPreferidos">
                         <label class="form-check-label" for="lenguajesPreferidos">PHP</label>
                     </div>
                     <div class="form-check col-12">
-                        <input class="form-check-input" type="checkbox" id="lenguajesPreferidos">
+                        <input class="form-check-input" type="checkbox" value="" id="lenguajesPreferidos">
                         <label class="form-check-label" for="lenguajesPreferidos">Ruby on Rails</label>
                     </div>
                     <div class="form-check col-12">
-                        <input class="form-check-input" type="checkbox" id="lenguajesPreferidos">
+                        <input class="form-check-input" type="checkbox" value="" id="lenguajesPreferidos">
                         <label class="form-check-label" for="lenguajesPreferidos">Java</label>
                     </div>
                     <div class="form-check col-12">
-                        <input class="form-check-input" type="checkbox" id="lenguajesPreferidos">
+                        <input class="form-check-input" type="checkbox" value="" id="lenguajesPreferidos">
                         <label class="form-check-label" for="lenguajesPreferidos">R</label>
                     </div>
                     <div class="form-check col-12">
-                        <input class="form-check-input" type="checkbox" id="lenguajesPreferidos">
+                        <input class="form-check-input" type="checkbox" value="" id="lenguajesPreferidos">
                         <label class="form-check-label" for="lenguajesPreferidos">Groovy</label>
                     </div>
                     <div class="form-check col-12">
-                        <input class="form-check-input" type="checkbox" id="lenguajesPreferidos">
+                        <input class="form-check-input" type="checkbox" value="" id="lenguajesPreferidos">
                         <label class="form-check-label" for="lenguajesPreferidos">Go</label>
                     </div>
                     <div class="form-check col-12">
-                        <input class="form-check-input" type="checkbox" id="lenguajesPreferidos">
+                        <input class="form-check-input" type="checkbox" value="" id="lenguajesPreferidos">
                         <label class="form-check-label" for="lenguajesPreferidos">Swift</label>
                     </div>
                     <div class="form-check col-12">
-                        <input class="form-check-input" type="checkbox" id="lenguajesPreferidos">
+                        <input class="form-check-input" type="checkbox" value="" id="lenguajesPreferidos">
                         <label class="form-check-label" for="lenguajesPreferidos">Kotlin</label>
                     </div>
                                     
                 </div>
 
-                <div class="col-12 d-flex flex-wrap justify-content-center" id="nivelXp">
+                <div class="col-12 d-flex flex-wrap justify-content-center">
                     <label for="nivelExperiencia" class="form-label">Nivel de experiencia en programacion*</label>
                     <div class="form-check col-12">
-                        <input class="form-check-input" type="radio" name="nivelExperiencia" id="xpProgramacion" required>
+                        <input class="form-check-input" type="radio" name="nivelExperiencia">
                         <label class="form-check-label" for="nivelExperiencia">Alto</label>
                     </div>
                     <div class="form-check col-12">
-                        <input class="form-check-input" type="radio" name="nivelExperiencia" id="xpProgramacion" required>
+                        <input class="form-check-input" type="radio" name="nivelExperiencia">
                         <label class="form-check-label" for="nivelExperiencia">Medio</label>
                     </div>
                     <div class="form-check col-12">
-                        <input class="form-check-input" type="radio" name="nivelExperiencia" id="xpProgramacion" required>
+                        <input class="form-check-input" type="radio" name="nivelExperiencia">
                         <label class="form-check-label" for="nivelExperiencia">Bajo</label>
                     </div>
                 </div>
@@ -135,8 +133,8 @@
                         </div>
                     </div>
                     <div class="col-12 py-3 bt">
-                        <label for="nivelConocimientoJava" class="form-label">Java</label>
-                        <input type="range" class="form-range" min="0" max="2" id="nivelConocimientoJava">
+                        <label for="nivelConocimientoPython" class="form-label">Java</label>
+                        <input type="range" class="form-range" min="0" max="2" id="nivelConocimientoPython">
                         <div class="d-flex flex-wrap justify-content-between between">
                             <div>Poco</div>
                             <div>Intermedio</div>
@@ -144,8 +142,8 @@
                         </div>
                     </div>
                     <div class="col-12 py-3">
-                        <label for="nivelConocimientoCPP" class="form-label">C++</label>
-                        <input type="range" class="form-range" min="0" max="2" id="nivelConocimientoCPP">
+                        <label for="nivelConocimientoPython" class="form-label">C++</label>
+                        <input type="range" class="form-range" min="0" max="2" id="nivelConocimientoPython">
                         <div class="d-flex flex-wrap justify-content-between between">
                             <div>Poco</div>
                             <div>Intermedio</div>
@@ -155,7 +153,7 @@
 
                 </div>
 
-                <div class="col-12 py-5 d-flex flex-wrap justify-content-center" id="ramoDif">
+                <div class="col-12 p-5 d-flex flex-wrap justify-content-center">
                     <label for="ramoDificil" class="form-label">Seleccione cual es el curso mas dificil para usted*</label>
                         <div class="form-check col-12">
                             <input class="form-check-input" type="checkbox" id="ramoDificil">
@@ -173,31 +171,23 @@
                             <input class="form-check-input" type="checkbox" id="ramoDificil">
                             <label class="form-check-label" for="ramoDificil">Sistemas Operativos</label>
                         </div>
-                        <div class="form-check col-12" id = "otroCurso">
-                            <input class="form-check-input" type="checkbox" id="ramoDificil" name="otro">
+                        <div class="form-check col-12">
+                            <input class="form-check-input" type="checkbox" id="ramoDificil">
                             <label class="form-check-label" for="ramoDificil">Otro</label>
-                            <textarea class="form-control" id="opinionRamoDificil" rows="3"></textarea>
+                            <textarea class="form-control" id="ramoDificil" rows="3"></textarea>
                         </div>
                         
-    
+                        <div class="col-12 d-flex flex-wrap justify-content-center">
+                            <label class="form-check-label" for="opinionEscuela">Opinion de la Escuela de Informatica</label>
+                            <textarea class="form-control" id="ramoDificil" rows="3"></textarea>
+                        </div>        
                 </div>
-                <div class="col-12 d-flex flex-wrap justify-content-center">
-                    <label class="form-check-label" for="opinionEscuela">Opinion de la Escuela de Informatica</label>
-                    <textarea class="form-control" id="opinionEscuela" rows="3" maxlength="500"></textarea>
-                    <div class="col-12 d-flex flex-wrap justify-content-end">
-                        <span id = "current" class = "pull-right">0</span>
-                        <span id = "maximum" class = "pull-right">/ 500</span>
-                    </div>
-                </div>    
 
-                <div class="col-12  py-3 d-flex flex-wrap justify-content-around text-white rounded-top rounded-pill bg-dark" id="wrapperBttn">
-                    <button class="btn btn-danger" id="limpiarDatos">Cancelar </button>
-                    <button type="submit" class="btn btn-success" id="enviarFormulario">Enviar</button>
+                <div class="col-12  py-3 d-flex flex-wrap justify-content-around text-white rounded-top rounded-pill bg-dark">
+                    <input class="btn btn-danger" type="reset" value="Borrar Formulario">
+                    <input class="btn btn-success" type="submit" value="Enviar formulario">
                 </div>
-                
             </form>
         </div>
-        <script data-main="js/formulario.js" src="js/require-jquery.js"></script>
     </body>
 </html>
-
