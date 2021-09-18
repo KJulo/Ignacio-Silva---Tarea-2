@@ -22,16 +22,23 @@ $("#opinionEscuela").on('keyup', function(){
         charCurrent.addClass ("text-danger");
         charMaximum.addClass ("text-danger");
     }
-})
+});
 
 
 
 $("#enviarFormulario").on('click', function(event:any){
+    if (verificarFormulario(event)){
+        window.location.href = "FormSuccess.html";    
+    }else{
+        alert("")
+    }
+});
+
+function verificarFormulario(event:any){
     let flagLengPref:boolean = false,
     flagRamoDif:boolean = false,
     flagExpProg:boolean = false,
     flagRamoDifOtro:boolean = false,
-    flagForm:boolean = false,
     flagNombre:boolean = true,
     flagRut:boolean = true,
     flagMail:boolean = true,
@@ -56,7 +63,7 @@ $("#enviarFormulario").on('click', function(event:any){
             switch (input.attr("type")){
                 case "text":{
                     if (input.attr("id") == "rut"){
-                        if (Fn.validaRut(input.val()) == false){
+                        if (checkRut(input.val()) == false){
                             toInvalid(input);
                             flagRut = false;
                             break;
@@ -84,7 +91,6 @@ $("#enviarFormulario").on('click', function(event:any){
                 }
                 
                 case "checkbox":{
-                    
                     switch (input.attr("id")){
                         case "lenguajesPreferidos": {
                             if (input.is(":checked")) flagLengPref = true;
@@ -115,12 +121,7 @@ $("#enviarFormulario").on('click', function(event:any){
                                 }else{
                                     flagRamoDif = true;
                                 }
-                            
-                            
                             }
-
-
-
 
                             if (flagRamoDif == true || flagRamoDifOtro == true){
                                 $("#ramoDif input").each(function(){
@@ -137,17 +138,17 @@ $("#enviarFormulario").on('click', function(event:any){
                         }
                     }
                     break;
-
                 }
                 
                 case "radio": {
                     $("#nivelXp div input").each(function(){
                         toInvalid(($(this)));
-                        flagForm = false;
                     })
+
                     if (input.is(":checked")) flagExpProg = true;
+
                     if (flagExpProg == true){
-                        $("#nivelXp div input").each(function(){
+                        $("#nivel Xp div input").each(function(){
                             toValid(($(this)));
                         })
                         flagXpProg = true;
@@ -175,31 +176,10 @@ $("#enviarFormulario").on('click', function(event:any){
 
 
     if (flagNombre == true && flagRut == true && flagMail == true && flagTel == true && flagLenguajePref != false && !flagXpProg != true && flagCursoDif != false && flagOpinionEscuela == true){
-        console.log("formulario Completo");
+        return true;
     }
-});
-
-//@Author: Cesar Gonzalez
-//@Function: Encargado de verificar el rut y que efectivamente corresponde a un rut existente.
-let Fn = {
-	// Valida el rut con su cadena completa "XXXXXXXX-X"
-	validaRut : function (rutCompleto:any) {
-		if (!/^[0-9]+[-|‐]{1}[0-9kK]{1}$/.test( rutCompleto ))
-			return false;
-		var tmp 	= rutCompleto.split('-');
-		var digv	= tmp[1]; 
-		var rut 	= tmp[0];
-		if ( digv == 'K' ) digv = 'k' ;
-		return (Fn.dv(rut) == digv );
-	},
-	dv : function(T:any){
-		var M=0,S=1;
-		for(;T;T=Math.floor(T/10))
-			S=(S+T%10*(9-M++%6))%11;
-		return S?S-1:'k';
-	}
-}
-
+    return false;
+};
 
 
 function toValid(input:any){
@@ -212,7 +192,10 @@ function toInvalid(input:any){
     input.addClass("is-invalid");
 }
 
-
+function checkRut(rut:any){
+    if (rut.length < 4 || rut.length > 10 || rut[rut.length-2] != "-" || rut.includes(".")) return false;
+    return true;
+}
 
 function checkTel(tel:any){
     if (tel.length >9 || tel.length <9) return false;

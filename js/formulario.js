@@ -19,7 +19,15 @@ define(["require", "exports", "jquery"], function (require, exports, jquery) {
         }
     });
     $("#enviarFormulario").on('click', function (event) {
-        var flagLengPref = false, flagRamoDif = false, flagExpProg = false, flagRamoDifOtro = false, flagForm = false, flagNombre = true, flagRut = true, flagMail = true, flagTel = true, flagLenguajePref = false, flagXpProg = false, flagCursoDif = false, flagOpinionEscuela = false;
+        if (verificarFormulario(event)) {
+            window.location.href = "FormSuccess.html";
+        }
+        else {
+            alert("");
+        }
+    });
+    function verificarFormulario(event) {
+        var flagLengPref = false, flagRamoDif = false, flagExpProg = false, flagRamoDifOtro = false, flagNombre = true, flagRut = true, flagMail = true, flagTel = true, flagLenguajePref = false, flagXpProg = false, flagCursoDif = false, flagOpinionEscuela = false;
         event.preventDefault();
         $("#formulario input").each(function (index) {
             var input = $(this);
@@ -41,7 +49,7 @@ define(["require", "exports", "jquery"], function (require, exports, jquery) {
                 switch (input.attr("type")) {
                     case "text": {
                         if (input.attr("id") == "rut") {
-                            if (Fn.validaRut(input.val()) == false) {
+                            if (checkRut(input.val()) == false) {
                                 toInvalid(input);
                                 flagRut = false;
                                 break;
@@ -115,12 +123,11 @@ define(["require", "exports", "jquery"], function (require, exports, jquery) {
                     case "radio": {
                         $("#nivelXp div input").each(function () {
                             toInvalid(($(this)));
-                            flagForm = false;
                         });
                         if (input.is(":checked"))
                             flagExpProg = true;
                         if (flagExpProg == true) {
-                            $("#nivelXp div input").each(function () {
+                            $("#nivel Xp div input").each(function () {
                                 toValid(($(this)));
                             });
                             flagXpProg = true;
@@ -144,30 +151,11 @@ define(["require", "exports", "jquery"], function (require, exports, jquery) {
         console.log("Flag curso mas dificil: " + flagCursoDif);
         console.log("Flag opinion escuela: " + flagOpinionEscuela);
         if (flagNombre == true && flagRut == true && flagMail == true && flagTel == true && flagLenguajePref != false && !flagXpProg != true && flagCursoDif != false && flagOpinionEscuela == true) {
-            console.log("formulario Completo");
+            return true;
         }
-    });
-    //@Author: Cesar Gonzalez
-    //@Function: Encargado de verificar el rut y que efectivamente corresponde a un rut existente.
-    var Fn = {
-        // Valida el rut con su cadena completa "XXXXXXXX-X"
-        validaRut: function (rutCompleto) {
-            if (!/^[0-9]+[-|‐]{1}[0-9kK]{1}$/.test(rutCompleto))
-                return false;
-            var tmp = rutCompleto.split('-');
-            var digv = tmp[1];
-            var rut = tmp[0];
-            if (digv == 'K')
-                digv = 'k';
-            return (Fn.dv(rut) == digv);
-        },
-        dv: function (T) {
-            var M = 0, S = 1;
-            for (; T; T = Math.floor(T / 10))
-                S = (S + T % 10 * (9 - M++ % 6)) % 11;
-            return S ? S - 1 : 'k';
-        }
-    };
+        return false;
+    }
+    ;
     function toValid(input) {
         input.removeClass("is-invalid");
         input.addClass("is-valid");
@@ -175,6 +163,11 @@ define(["require", "exports", "jquery"], function (require, exports, jquery) {
     function toInvalid(input) {
         input.removeClass("is-valid");
         input.addClass("is-invalid");
+    }
+    function checkRut(rut) {
+        if (rut.length < 4 || rut.length > 10 || rut[rut.length - 2] != "-" || rut.includes("."))
+            return false;
+        return true;
     }
     function checkTel(tel) {
         if (tel.length > 9 || tel.length < 9)
