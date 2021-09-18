@@ -30,7 +30,7 @@ $("#enviarFormulario").on('click', function(event:any){
     if (verificarFormulario(event)){
         window.location.href = "FormSuccess.html";    
     }else{
-        alert("")
+        alert("Ingrese los datos en los campos requeridos");
     }
 });
 
@@ -49,9 +49,7 @@ function verificarFormulario(event:any){
     flagOpinionEscuela:boolean = false;
     event.preventDefault();
     $("#formulario input").each(function(index){
-        let input = $(this);
-        //console.log(input.attr("type"));
-        //console.log($("#opinionRamoDificil").val());        
+        let input = $(this);     
         if (input.val() == ""){
             toInvalid(input);
             if (input.attr("id") == "nombreCompleto") flagNombre = false;
@@ -163,17 +161,6 @@ function verificarFormulario(event:any){
     if ($("#opinionEscuela").val() != ""){
         flagOpinionEscuela = true;
     }
-    
-    console.clear();
-    console.log("Flag nombre: "+flagNombre);
-    console.log("Flag rut: "+flagRut);
-    console.log("Flag mail: "+flagMail);
-    console.log("Flag Telefono: "+flagTel);
-    console.log("Flag lenguajes preferidos: "+flagLenguajePref);
-    console.log("Flag nivelXp: "+flagXpProg);
-    console.log("Flag curso mas dificil: "+flagCursoDif);
-    console.log("Flag opinion escuela: "+flagOpinionEscuela);
-
 
     if (flagNombre == true && flagRut == true && flagMail == true && flagTel == true && flagLenguajePref != false && !flagXpProg != true && flagCursoDif != false && flagOpinionEscuela == true){
         return true;

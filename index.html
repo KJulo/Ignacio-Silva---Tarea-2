@@ -15,46 +15,45 @@
         <!--Estilos locales-->
         <link rel="stylesheet" href="/css/estilos.css">
         
-
         <!--Bootstrap-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-        <!--Animate.css-->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-
     </head>
     <body class = "bg-secondary">
         <div class="container">
-            <header class="d-flex flex-wrap justify-content-center py-3 bg-dark text-white rounded-bottom rounded-pill">    
+            <header class="d-flex flex-wrap justify-content-center p-3 bg-dark text-white rounded-bottom rounded-pill">    
                 <span class="fs-4">Formulario</span>
             </header>
         </div>
-        <div class="container bg-white">
-            <form id="formulario" class="needs-validation" method="post">
+        <div class="container p-n1 bg-white rounded">
+            <form id="formulario" class="needs-validation " method="post">
                 <div class="col-12 d-flex flex-wrap justify-content-center">
                     <label for="nombreCompleto" class="form-label">Nombre completo*</label>
                     <input type="text" class="form-control" id="nombreCompleto" placeholder="Su nombre completo" required>
-                    <div class="invalid-feedback"> xdasdas</div>
+                    <div class="invalid-feedback">Ingrese su nombre.</div>
                     
                 </div>
 
                 <div class="col-12 d-flex flex-wrap justify-content-center">
                     <label for="rut" class="form-label">Rut*</label>
                     <input type="text" class="form-control" id="rut" placeholder="xxxxxxxx-x" required>
+                    <div class="invalid-feedback">Ingrese su rut.</div>
                 </div>
 
                 <div class="col-12 d-flex flex-wrap justify-content-center">
                     <label for="correoElectronico" class="form-label">Correo electrónico*</label>
                     <input type="email" class="form-control" id="correoElectronico" placeholder="correo@dominio.com" required>
+                    <div class="invalid-feedback">Ingrese su correo.</div>
                 </div>
 
                 <div class="col-12 d-flex flex-wrap justify-content-center">
                     <label for="telefonoMovil" class="form-label">Telefono movil*</label>
                     <input type="number" class="form-control" id="telefonoMovil" placeholder="912345678" pattern="[0-9]{9}" required>
+                    <div class="invalid-feedback">Ingrese su numero telefonico.</div>
                 </div>
 
-                <div class="col-12 d-flex flex-wrap justify-content-center" id="lenguajeInteres">
+                <div class="col-12 d-flex flex-wrap justify-content-center" id="lenguajeInteres" required>
                     <label for="cListLenguajeI" class="form-label" >Lenguajes de interes*</label>
                     <div class="form-check col-12">
                         <input class="form-check-input" type="checkbox" id="lenguajesPreferidos">
@@ -103,8 +102,9 @@
                     <div class="form-check col-12">
                         <input class="form-check-input" type="checkbox" id="lenguajesPreferidos">
                         <label class="form-check-label" for="lenguajesPreferidos">Kotlin</label>
+                        <div class="invalid-feedback">Seleccione almenos 1 lenguaje de interes.</div>
                     </div>
-                                    
+                    
                 </div>
 
                 <div class="col-12 d-flex flex-wrap justify-content-center" id="nivelXp">
@@ -120,6 +120,7 @@
                     <div class="form-check col-12">
                         <input class="form-check-input" type="radio" name="nivelExperiencia" id="xpProgramacion" required>
                         <label class="form-check-label" for="nivelExperiencia">Bajo</label>
+                        <div class="invalid-feedback">Seleccione su grado de experiencia.</div>
                     </div>
                 </div>
 
@@ -177,6 +178,7 @@
                             <input class="form-check-input" type="checkbox" id="ramoDificil" name="otro">
                             <label class="form-check-label" for="ramoDificil">Otro</label>
                             <textarea class="form-control" id="opinionRamoDificil" rows="3"></textarea>
+                            <div class="invalid-feedback">Seleccione cual curso ha sido mas dificil para usted.</div>
                         </div>
                         
     
@@ -184,20 +186,24 @@
                 <div class="col-12 d-flex flex-wrap justify-content-center">
                     <label class="form-check-label" for="opinionEscuela">Opinion de la Escuela de Informatica</label>
                     <textarea class="form-control" id="opinionEscuela" rows="3" maxlength="500"></textarea>
-                    <div class="col-12 d-flex flex-wrap justify-content-end">
-                        <span id = "current" class = "pull-right">0</span>
-                        <span id = "maximum" class = "pull-right">/ 500</span>
+                    <div class="col-6 d-flex flex-wrap justify-content-start">
+                        <div>*Es obligatorio dejar una opinion respecto a la escuela*</div>
+                    </div>
+                    <div class= "col-6 d-flex flex-wrap justify-content-end">
+                        <div id = "current" class = "">0</div>
+                        <div id = "maximum" class = "">/ 500</div>
                     </div>
                 </div>    
-
-                <div class="col-12  py-3 d-flex flex-wrap justify-content-around text-white rounded-top rounded-pill bg-dark" id="wrapperBttn">
-                    <button class="btn btn-danger" id="limpiarDatos">Cancelar</button>
-                    <button type="submit" class="btn btn-success" id="enviarFormulario">Enviar</button>
-                </div>
-                
             </form>
-            
         </div>
+
+        <div class="container">
+            <div class="col-12 p-3 d-flex flex-wrap justify-content-around text-white rounded-top rounded-pill bg-dark" id="wrapperBttn">
+                <button class="btn btn-danger" id="limpiarDatos">Cancelar</button>
+                <button type="submit" class="btn btn-success" id="enviarFormulario">Enviar</button>
+            </div>
+        </div>
+
         <script data-main="js/formulario.js" src="js/require-jquery.js"></script>
     </body>
 </html>

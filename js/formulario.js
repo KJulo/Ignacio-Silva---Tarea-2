@@ -23,7 +23,7 @@ define(["require", "exports", "jquery"], function (require, exports, jquery) {
             window.location.href = "FormSuccess.html";
         }
         else {
-            alert("");
+            alert("Ingrese los datos en los campos requeridos");
         }
     });
     function verificarFormulario(event) {
@@ -31,8 +31,6 @@ define(["require", "exports", "jquery"], function (require, exports, jquery) {
         event.preventDefault();
         $("#formulario input").each(function (index) {
             var input = $(this);
-            //console.log(input.attr("type"));
-            //console.log($("#opinionRamoDificil").val());        
             if (input.val() == "") {
                 toInvalid(input);
                 if (input.attr("id") == "nombreCompleto")
@@ -141,15 +139,6 @@ define(["require", "exports", "jquery"], function (require, exports, jquery) {
         if ($("#opinionEscuela").val() != "") {
             flagOpinionEscuela = true;
         }
-        console.clear();
-        console.log("Flag nombre: " + flagNombre);
-        console.log("Flag rut: " + flagRut);
-        console.log("Flag mail: " + flagMail);
-        console.log("Flag Telefono: " + flagTel);
-        console.log("Flag lenguajes preferidos: " + flagLenguajePref);
-        console.log("Flag nivelXp: " + flagXpProg);
-        console.log("Flag curso mas dificil: " + flagCursoDif);
-        console.log("Flag opinion escuela: " + flagOpinionEscuela);
         if (flagNombre == true && flagRut == true && flagMail == true && flagTel == true && flagLenguajePref != false && !flagXpProg != true && flagCursoDif != false && flagOpinionEscuela == true) {
             return true;
         }
