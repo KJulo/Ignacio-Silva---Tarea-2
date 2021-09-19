@@ -139,19 +139,19 @@ function verificarFormulario(event:any){
                 }
                 
                 case "radio": {
-                    $("#nivelXp div input").each(function(){
-                        toInvalid(($(this)));
-                    })
-
                     if (input.is(":checked")) flagExpProg = true;
 
                     if (flagExpProg == true){
-                        $("#nivel Xp div input").each(function(){
+                        $("#nivelXp input").each(function(){
                             toValid(($(this)));
                         })
                         flagXpProg = true;
                         break;
                     }
+                    $("#nivelXp input").each(function(){
+                        toInvalid(($(this)));
+                    })
+
                     break;
                 }
             }
