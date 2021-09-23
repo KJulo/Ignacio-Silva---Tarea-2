@@ -4,8 +4,8 @@ const $:JQueryStatic=jquery;
 
 $("#opinionEscuela").on('keyup', function(){
     let texto:any = $(this),
-        charCurrent = $("#current"),
-        charMaximum = $("#maximum"),
+        charCurrent = $("#currentOpEsc"),
+        charMaximum = $("#maximumOpEsc"),
         charCount = texto.val().length;
         charCurrent.text(charCount);
         
@@ -23,6 +23,29 @@ $("#opinionEscuela").on('keyup', function(){
         charMaximum.addClass ("text-danger");
     }
 });
+
+$("#opinionRamoDificil").on('keyup', function(){
+    let texto:any = $(this),
+        charCurrent = $("#currentDifRamo"),
+        charMaximum = $("#maximumDifRamo"),
+        charCount = texto.val().length;
+        charCurrent.text(charCount);
+        
+        charCurrent.removeClass ("text-danger");
+        charMaximum.removeClass ("text-danger");
+        charCurrent.removeClass ("text-warning");
+        charMaximum.removeClass ("text-warning");
+
+    if (charCount > 300 && charCount < 400){
+        charCurrent.addClass ("text-warning");
+        charMaximum.addClass ("text-warning");
+    }
+    if (charCount >= 400){
+        charCurrent.addClass ("text-danger");
+        charMaximum.addClass ("text-danger");
+    }
+});
+
 
 
 
@@ -206,10 +229,14 @@ $("#limpiarDatos").on("click", function(event:any){
         if (input.attr("type") == "email" && input.val()!="") input.val("");
         if (input.attr("type") == "number" && input.val()!="") input.val("");
         if (input.attr("type") == "checkbox" && input.is(":checked")) input.prop("checked", false);
-        if (input.attr("type") == "radio" && input.val()!=1) input.val(1);
+        if (input.attr("type") == "radio" && input.is(":checked")) input.prop("checked", false);
+        if (input.attr("type") == "range" && input.val()!=1) input.val(1);
     })
     if ($("#opinionEscuela").val() != ""){
         $("#opinionEscuela").val("");
+    }
+    if ($("#opinionRamoDificil").val() != ""){
+        $("#opinionRamoDificil").val("");
     }
 })
 

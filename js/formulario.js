@@ -3,7 +3,23 @@ define(["require", "exports", "jquery"], function (require, exports, jquery) {
     Object.defineProperty(exports, "__esModule", { value: true });
     var $ = jquery;
     $("#opinionEscuela").on('keyup', function () {
-        var texto = $(this), charCurrent = $("#current"), charMaximum = $("#maximum"), charCount = texto.val().length;
+        var texto = $(this), charCurrent = $("#currentOpEsc"), charMaximum = $("#maximumOpEsc"), charCount = texto.val().length;
+        charCurrent.text(charCount);
+        charCurrent.removeClass("text-danger");
+        charMaximum.removeClass("text-danger");
+        charCurrent.removeClass("text-warning");
+        charMaximum.removeClass("text-warning");
+        if (charCount > 300 && charCount < 400) {
+            charCurrent.addClass("text-warning");
+            charMaximum.addClass("text-warning");
+        }
+        if (charCount >= 400) {
+            charCurrent.addClass("text-danger");
+            charMaximum.addClass("text-danger");
+        }
+    });
+    $("#opinionRamoDificil").on('keyup', function () {
+        var texto = $(this), charCurrent = $("#currentDifRamo"), charMaximum = $("#maximumDifRamo"), charCount = texto.val().length;
         charCurrent.text(charCount);
         charCurrent.removeClass("text-danger");
         charMaximum.removeClass("text-danger");
@@ -183,11 +199,16 @@ define(["require", "exports", "jquery"], function (require, exports, jquery) {
                 input.val("");
             if (input.attr("type") == "checkbox" && input.is(":checked"))
                 input.prop("checked", false);
-            if (input.attr("type") == "radio" && input.val() != 1)
+            if (input.attr("type") == "radio" && input.is(":checked"))
+                input.prop("checked", false);
+            if (input.attr("type") == "range" && input.val() != 1)
                 input.val(1);
         });
         if ($("#opinionEscuela").val() != "") {
             $("#opinionEscuela").val("");
+        }
+        if ($("#opinionRamoDificil").val() != "") {
+            $("#opinionRamoDificil").val("");
         }
     });
 });

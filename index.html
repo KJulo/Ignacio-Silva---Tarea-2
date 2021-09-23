@@ -177,7 +177,11 @@
                         <div class="form-check col-12" id = "otroCurso">
                             <input class="form-check-input" type="checkbox" id="ramoDificil" name="otro">
                             <label class="form-check-label" for="ramoDificil">Otro</label>
-                            <textarea class="form-control" id="opinionRamoDificil" rows="3"></textarea>
+                            <textarea class="form-control" id="opinionRamoDificil" rows="3" maxlength="500"></textarea>
+                            <div class= "col-12 d-flex flex-wrap justify-content-end">
+                                <div id = "currentDifRamo" class = "">0</div>
+                                <div id = "maximumDifRamo" class = "">/ 500</div>
+                            </div>
                             <div class="invalid-feedback">Seleccione cual curso ha sido mas dificil para usted.</div>
                         </div>
                         
@@ -189,9 +193,9 @@
                     <div class="col-6 d-flex flex-wrap justify-content-start">
                         <div>*Es obligatorio dejar una opinion respecto a la escuela*</div>
                     </div>
-                    <div class= "col-6 d-flex flex-wrap justify-content-end">
-                        <div id = "current" class = "">0</div>
-                        <div id = "maximum" class = "">/ 500</div>
+                    <div class= "col-6 d-flex flex-wrap justify-content-end" id="contadorOpinionEscuela">
+                        <div id = "currentOpEsc" class = "">0</div>
+                        <div id = "maximumOpEsc" class = "">/ 500</div>
                     </div>
                 </div>    
             </form>
