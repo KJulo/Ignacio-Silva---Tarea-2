@@ -113,8 +113,10 @@ function verificarFormulario(event:any){
                                     if ($("#opinionRamoDificil").val() == ""){
                                         flagRamoDifOtro = false;
                                         flagRamoDif = false;
+                                        toInvalid($("#opinionRamoDificil"));
                                     }else{
                                         flagRamoDifOtro = true;
+                                        toValid($("#opinionRamoDificil"));
                                     }
                                 }else{
                                     flagRamoDif = true;
@@ -157,9 +159,10 @@ function verificarFormulario(event:any){
             }
         }
     });
-
+    toInvalid($("#opinionEscuela"));
     if ($("#opinionEscuela").val() != ""){
         flagOpinionEscuela = true;
+        toValid($("#opinionEscuela"));
     }
 
     if (flagNombre == true && flagRut == true && flagMail == true && flagTel == true && flagLenguajePref != false && !flagXpProg != true && flagCursoDif != false && flagOpinionEscuela == true){

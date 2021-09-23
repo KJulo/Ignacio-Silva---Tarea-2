@@ -9,3 +9,10 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+
+.tituloLabel {
+  font-weight: bold;
+  border-bottom: 1px solid;
+  border-bottom-style: dashed;;
+}

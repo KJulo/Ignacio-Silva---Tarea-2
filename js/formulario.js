@@ -94,9 +94,11 @@ define(["require", "exports", "jquery"], function (require, exports, jquery) {
                                         if ($("#opinionRamoDificil").val() == "") {
                                             flagRamoDifOtro = false;
                                             flagRamoDif = false;
+                                            toInvalid($("#opinionRamoDificil"));
                                         }
                                         else {
                                             flagRamoDifOtro = true;
+                                            toValid($("#opinionRamoDificil"));
                                         }
                                     }
                                     else {
@@ -136,8 +138,10 @@ define(["require", "exports", "jquery"], function (require, exports, jquery) {
                 }
             }
         });
+        toInvalid($("#opinionEscuela"));
         if ($("#opinionEscuela").val() != "") {
             flagOpinionEscuela = true;
+            toValid($("#opinionEscuela"));
         }
         if (flagNombre == true && flagRut == true && flagMail == true && flagTel == true && flagLenguajePref != false && !flagXpProg != true && flagCursoDif != false && flagOpinionEscuela == true) {
             return true;
