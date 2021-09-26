@@ -177,6 +177,7 @@ define(["require", "exports", "jquery"], function (require, exports, jquery) {
         if (rut.length < 4 || rut.length > 10 || rut[rut.length - 2] != "-" || rut.includes("."))
             return false;
         return true;
+        //10-1
     }
     function checkTel(tel) {
         if (tel.length > 9 || tel.length < 9)

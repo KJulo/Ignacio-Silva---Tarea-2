@@ -51,7 +51,7 @@ $("#opinionRamoDificil").on('keyup', function(){
 
 $("#enviarFormulario").on('click', function(event:any){
     if (verificarFormulario(event)){
-        window.location.href = "FormSuccess.html";    
+        window.location.href = "FormSuccess.html";
     }else{
         alert("Ingrese los datos en los campos requeridos");
     }
@@ -208,6 +208,8 @@ function toInvalid(input:any){
 function checkRut(rut:any){
     if (rut.length < 4 || rut.length > 10 || rut[rut.length-2] != "-" || rut.includes(".")) return false;
     return true;
+//10-1
+    
 }
 
 function checkTel(tel:any){
